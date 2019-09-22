@@ -21,7 +21,7 @@ public class Polling_Program {
 			responses[4][i] = 0;
 		}
 		
-		while((anotherSurvey.equals("y") || anotherSurvey.equals("Y")) && x < 11){
+		while(anotherSurvey.equals("y") || anotherSurvey.equals("Y")){
 			
 			System.out.println("Rate " + topics[0] + " on a 1-10 scale:");
 			x = scnr.nextInt() - 1;
