@@ -6,27 +6,27 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static int questionGeneration(int difficulty, int type){
+    public static float questionGeneration(int difficulty, int type){
         Random rand = new SecureRandom();
-        int rand1, rand2, ans;
+        float rand1, rand2, ans;
 
         switch(difficulty){
             case 4:
-                rand1 = rand.nextInt(10000);
-                rand2 = rand.nextInt(10000);
+                rand1 = (float)rand.nextInt(10000);
+                rand2 = (float)rand.nextInt(10000);
                 break;
             case 3:
-                rand1 = rand.nextInt(1000);
-                rand2 = rand.nextInt(1000);
+                rand1 = (float)rand.nextInt(1000);
+                rand2 = (float)rand.nextInt(1000);
                 break;
             case 2:
-                rand1 = rand.nextInt(100);
-                rand2 = rand.nextInt(100);
+                rand1 = (float)rand.nextInt(100);
+                rand2 = (float)rand.nextInt(100);
                 break;
             case 1:
             default:
-                rand1 = rand.nextInt(10);
-                rand2 = rand.nextInt(10);
+                rand1 = (float)rand.nextInt(10);
+                rand2 = (float)rand.nextInt(10);
                 break;
         }
 
@@ -38,7 +38,7 @@ public class Main {
                 if(rand2 == 0){
                     rand2 = 1;
                 }
-                System.out.println("How much is " + rand1 + " divided by " + rand2 + "? (Round down)");
+                System.out.println("How much is " + rand1 + " divided by " + rand2 + "?");
                 ans = rand1 / rand2;
                 break;
             case 3:
@@ -111,8 +111,9 @@ public class Main {
 
     public static void main(String[] args) {
             Scanner scnr = new Scanner(System.in);
-            int guess, ans, correctCount, level, type;
+            int correctCount, level, type;
             double percent;
+            float ans, guess;
 
             while(true) {
                 System.out.println("Select arithmetic type (1-Addition 2-Multiplication 3-Subtraction 4-Division 5-Random)");
@@ -122,9 +123,9 @@ public class Main {
             correctCount = 0;
             for (int i = 0; i < 10; ++i) {
                 ans = questionGeneration(level, type);
-                guess = scnr.nextInt();
+                guess = scnr.nextFloat();
 
-                if (ans != guess) {
+                if (Float.compare(ans, guess) != 0) {
                     System.out.println(incorrectResponse());
                 } else {
                     System.out.println(correctResponse());
