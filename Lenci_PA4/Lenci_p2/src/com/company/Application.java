@@ -47,7 +47,7 @@ public class Application {
         DuplicateCounter counter = new DuplicateCounter();
 
         try {
-            counter.count("problem1.txt");
+            counter.count("problem2.txt");
         }
         catch (FileNotFoundException ex){
             System.out.println("File not found!");
@@ -55,7 +55,7 @@ public class Application {
         }
 
         try{
-            counter.write("unique_words.txt");
+            counter.write("unique_word_counts.txt");
         }catch (FileNotFoundException ex){
             System.out.println("File not saved!");
             System.exit(0);
